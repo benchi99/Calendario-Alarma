@@ -13,6 +13,8 @@ namespace Control_Calendario
     public partial class CalAlarma: UserControl
     {
 
+        private string fFecha = "dd-MM-yyyy HH:mm";
+        
         string formato2anios = "dd-MM-yy";
         string formato4anios = "dd-MM-yyyy";
 
@@ -36,6 +38,23 @@ namespace Control_Calendario
             formatoAniosAct = formato4anios;
             formatoHoraAct = doscuatrohoras;
         }
+
+        [
+        Category("Formato hora"),
+        Description("El formato en el que se mostrará la hora.")
+        ]
+        public string FormatoHora
+        {
+            get
+            {
+                return fFecha;
+            }
+            set
+            {
+
+            }
+        }
+
 
         private void formatoFecha_CheckedChanged(object sender, EventArgs e)
         {
@@ -108,11 +127,6 @@ namespace Control_Calendario
                 timer1.Stop();
                 MessageBox.Show(cuerpo);
             }
-        }
-
-        private void CalAlarma_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
