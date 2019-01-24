@@ -47,7 +47,7 @@ namespace Control_Calendario
                     alarmPick.CustomFormat = fFecha;
                 } else
                 {
-                    fFecha = "dd-MM-yyyy HH:mm";
+                    fFecha = datePick.CustomFormat;
                 }
                 
                 Invalidate();
