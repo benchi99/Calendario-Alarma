@@ -12,20 +12,10 @@ namespace Control_Calendario
 {
     public partial class CalAlarma: UserControl
     {
-
         private string fFecha = "dd-MM-yyyy HH:mm";
-        
-        string formato2anios = "dd-MM-yy";
-        string formato4anios = "dd-MM-yyyy";
 
-        string docehoras = "hh:mm";
-        string doscuatrohoras = "HH:mm";
-
-        string formatoAniosAct;
-        string formatoHoraAct;
         string cuerpo;
 
-        StringBuilder strb;
         DateTime alarm;
 
         bool alarmaActiva;
@@ -35,13 +25,12 @@ namespace Control_Calendario
             InitializeComponent();
             timer1.Enabled = true;
 
-            formatoAniosAct = formato4anios;
-            formatoHoraAct = doscuatrohoras;
         }
 
         [
-        Category("Formato hora"),
-        Description("El formato en el que se mostrará la hora.")
+        Category("Behaviour"),
+        DisplayName("Formato de hora"),
+        Description("El formato en el que se mostrará la hora, siendo las posibles 'dd-MM-yyyy HH:mm', 'dd-MM-yyyy hh:mm', 'dd-MM-yy HH:mm' ó , 'dd-MM-yy hh:mm'")
         ]
         public string FormatoHora
         {
@@ -51,49 +40,20 @@ namespace Control_Calendario
             }
             set
             {
-
+                fFecha = value;
+                if (fFecha.Equals("dd-MM-yyyy HH:mm") || fFecha.Equals("dd-MM-yyyy hh:mm") || fFecha.Equals("dd-MM-yy hh:mm") || fFecha.Equals("dd-MM-yy HH:mm"))
+                {
+                    datePick.CustomFormat = fFecha;
+                    alarmPick.CustomFormat = fFecha;
+                } else
+                {
+                    fFecha = "dd-MM-yyyy HH:mm";
+                }
+                
+                Invalidate();
             }
-        }
-
-
-        private void formatoFecha_CheckedChanged(object sender, EventArgs e)
-        {
-            if (formatoFecha.Checked)
-            {
-                formatoAniosAct = formato2anios;
-            }
-            else if (!formatoFecha.Checked)
-            {
-                formatoAniosAct = formato4anios;
-            }
-
-            aplicar();
-        }
-
-        private void formatoHora_CheckedChanged(object sender, EventArgs e)
-        {
-            if (formatoHora.Checked)
-            {
-                formatoHoraAct = docehoras;
-            }
-            else if (!formatoHora.Checked)
-            {
-                formatoHoraAct = doscuatrohoras;
-            }
-            aplicar();
         }
         
-        private void aplicar()
-        {
-            strb = new StringBuilder();
-
-            strb.Append(formatoAniosAct);
-            strb.Append(" ");
-            strb.Append(formatoHoraAct);
-
-            datePick.CustomFormat = strb.ToString();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             int anno = alarmPick.Value.Year;

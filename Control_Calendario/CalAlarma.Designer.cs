@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.datePick = new System.Windows.Forms.DateTimePicker();
-            this.formato = new System.Windows.Forms.GroupBox();
-            this.formatoHora = new System.Windows.Forms.CheckBox();
-            this.formatoFecha = new System.Windows.Forms.CheckBox();
             this.alarma = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cuerpoAlarmaTbx = new System.Windows.Forms.TextBox();
@@ -42,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.alarmPick = new System.Windows.Forms.DateTimePicker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.formato.SuspendLayout();
             this.alarma.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minNumAlarm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horaNumAlarm)).BeginInit();
@@ -52,43 +48,10 @@
             // 
             this.datePick.CustomFormat = "dd-MM-yyyy HH:mm";
             this.datePick.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePick.Location = new System.Drawing.Point(9, 3);
+            this.datePick.Location = new System.Drawing.Point(9, 11);
             this.datePick.Name = "datePick";
-            this.datePick.Size = new System.Drawing.Size(345, 20);
+            this.datePick.Size = new System.Drawing.Size(358, 20);
             this.datePick.TabIndex = 0;
-            // 
-            // formato
-            // 
-            this.formato.Controls.Add(this.formatoHora);
-            this.formato.Controls.Add(this.formatoFecha);
-            this.formato.Location = new System.Drawing.Point(3, 29);
-            this.formato.Name = "formato";
-            this.formato.Size = new System.Drawing.Size(357, 46);
-            this.formato.TabIndex = 1;
-            this.formato.TabStop = false;
-            this.formato.Text = "Formato";
-            // 
-            // formatoHora
-            // 
-            this.formatoHora.AutoSize = true;
-            this.formatoHora.Location = new System.Drawing.Point(223, 19);
-            this.formatoHora.Name = "formatoHora";
-            this.formatoHora.Size = new System.Drawing.Size(130, 17);
-            this.formatoHora.TabIndex = 1;
-            this.formatoHora.Text = "Cambiar de 12h a 24h";
-            this.formatoHora.UseVisualStyleBackColor = true;
-            this.formatoHora.CheckedChanged += new System.EventHandler(this.formatoHora_CheckedChanged);
-            // 
-            // formatoFecha
-            // 
-            this.formatoFecha.AutoSize = true;
-            this.formatoFecha.Location = new System.Drawing.Point(6, 19);
-            this.formatoFecha.Name = "formatoFecha";
-            this.formatoFecha.Size = new System.Drawing.Size(211, 17);
-            this.formatoFecha.TabIndex = 0;
-            this.formatoFecha.Text = "Cambiar de año con dos cifras a cuatro";
-            this.formatoFecha.UseVisualStyleBackColor = true;
-            this.formatoFecha.CheckedChanged += new System.EventHandler(this.formatoFecha_CheckedChanged);
             // 
             // alarma
             // 
@@ -99,7 +62,7 @@
             this.alarma.Controls.Add(this.button1);
             this.alarma.Controls.Add(this.label1);
             this.alarma.Controls.Add(this.alarmPick);
-            this.alarma.Location = new System.Drawing.Point(3, 81);
+            this.alarma.Location = new System.Drawing.Point(10, 36);
             this.alarma.Name = "alarma";
             this.alarma.Size = new System.Drawing.Size(357, 135);
             this.alarma.TabIndex = 2;
@@ -186,13 +149,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.alarma);
-            this.Controls.Add(this.formato);
             this.Controls.Add(this.datePick);
             this.Name = "CalAlarma";
-            this.Size = new System.Drawing.Size(365, 220);
-            this.Load += new System.EventHandler(this.CalAlarma_Load);
-            this.formato.ResumeLayout(false);
-            this.formato.PerformLayout();
+            this.Size = new System.Drawing.Size(377, 184);
             this.alarma.ResumeLayout(false);
             this.alarma.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minNumAlarm)).EndInit();
@@ -204,9 +163,6 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker datePick;
-        private System.Windows.Forms.GroupBox formato;
-        private System.Windows.Forms.CheckBox formatoHora;
-        private System.Windows.Forms.CheckBox formatoFecha;
         private System.Windows.Forms.GroupBox alarma;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
