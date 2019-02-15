@@ -49,7 +49,6 @@ namespace Control_Calendario
                 {
                     fFecha = datePick.CustomFormat;
                 }
-                
                 Invalidate();
             }
         }
